@@ -46,6 +46,7 @@ class ExpenseService:
     def remove_expense(self, expense_id: int) -> None:
         self._repository.remove(expense_id)
 
+
     def update_expense(
         self,
         expense_id: int,
@@ -73,7 +74,8 @@ class ExpenseService:
         Debería de devolver la suma de los amounts de todos los Expenses, ahora mismo parece devolver 0 solamente.
         :return:
         """
-        return 0
+
+        return sum(expense.amount for expense in self._repository.list_all())
 
     def total_by_month(self) -> dict[str, float]:
         totals = defaultdict(float)
