@@ -163,7 +163,7 @@ def test_total_amount_after_removal():
     service.create_expense("Cursos", 30, "", date(2020, 1, 23))
     service.create_expense("Revista", 25, "", date(2020, 1, 23))
 
-    assert sum(expense.amount for expense in service.list_expenses()) == 55
+    assert service.total_amount() == 55
     service.remove_expense(1)
-    assert sum(expense.amount for expense in service.list_expenses()) == 25
+    assert service.total_amount() == 25
 
