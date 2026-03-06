@@ -28,9 +28,9 @@ class ExpenseService:
         title: str,
         amount: float,
         description: str = "",
-        expense_date: date = None,
+        expense_date: date | None = None,
     ) -> Expense:
-        if expense_date == None:
+        if expense_date is None:
             expense_date = date.today()
         expense = Expense(
             id=self._next_id,
@@ -45,7 +45,6 @@ class ExpenseService:
 
     def remove_expense(self, expense_id: int) -> None:
         self._repository.remove(expense_id)
-
 
     def update_expense(
         self,
@@ -78,7 +77,7 @@ class ExpenseService:
         return sum(expense.amount for expense in self._repository.list_all())
 
     def total_by_month(self) -> dict[str, float]:
-        totals = defaultdict(float)
+        totals: dict = defaultdict(float)
 
         for expense in self._repository.list_all():
             key = expense.expense_date.strftime("%Y-%m")

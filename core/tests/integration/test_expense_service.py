@@ -145,7 +145,11 @@ def test_update_expense_partial_fields():
 
     expense = service.list_expenses()[0]
 
-    assert expense.title == "Camiseta" and expense.amount == 18 and expense.description == "Ropa"
+    assert (
+        expense.title == "Camiseta"
+        and expense.amount == 18
+        and expense.description == "Ropa"
+    )
 
 
 def test_total_amount_after_removal():
@@ -166,4 +170,3 @@ def test_total_amount_after_removal():
     assert service.total_amount() == 55
     service.remove_expense(1)
     assert service.total_amount() == 25
-

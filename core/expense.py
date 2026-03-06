@@ -23,7 +23,6 @@ class Expense:
         if self.title == "":
             raise EmptyTitleError("El titulo no debe estar vacío")
 
-
         if self.amount <= 0:
             raise InvalidAmountError("El importe debe ser mayor que 0")
 
@@ -31,6 +30,6 @@ class Expense:
             raise InvalidExpenseDateError(
                 "La fecha del gasto no puede ser posterior a hoy"
             )
-    
+
     def __eq__(self, other):
-        return (isinstance(other, Expense) and self.id == other.id)
+        return isinstance(other, Expense) and self.id == other.id
