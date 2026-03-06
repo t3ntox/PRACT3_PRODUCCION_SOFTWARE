@@ -34,6 +34,13 @@ def add_expense(context, amount, title):
     )
 
 
+@when(parsers.parse("añado un gasto del {expense_date} de {amount:d} euros llamado {title}"))
+def add_expense_by_month(context, expense_date, amount, title):
+    context["service"].create_expense(
+        title=title, amount=amount, description="", expense_date=date.fromisoformat(expense_date)
+        )
+
+
 @when(parsers.parse("elimino el gasto con id {expense_id:d}"))
 def remove_expense(context, expense_id):
     context["service"].remove_expense(expense_id)
