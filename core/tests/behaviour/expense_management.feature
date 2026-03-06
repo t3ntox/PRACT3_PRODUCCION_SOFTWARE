@@ -60,7 +60,7 @@ Feature: Gestión de gastos
     And añado un gasto de 50 euros llamado Portátil
     Then el total de dinero gastado debe ser 50 euros
 
-  Scenario: Crear tres gastos de 10, 30, 30 euros en meses 03,02 y 01, elimino uno con id 999 y creo un gasto nuevo de 50 euros en el mes 02 la suma son 80 euros
+  Scenario: Crear tres gastos de 10, 30, 30 euros en meses 03, 02 y 01, elimino uno con id 999 y creo un gasto nuevo de 50 euros en el mes 02 la suma son 80 euros
     Given un gestor de gastos vacío
     When añado un gasto del 2026-03-05 de 10 euros llamado Cine
     And añado un gasto del 2026-02-05 de 30 euros llamado Libros
